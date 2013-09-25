@@ -1,0 +1,65 @@
+README for GHCN Global Temperature Anomaly image re-projection
+
+Abstract:
+Six python scripts are contained in this project that re-project GHCN
+Global Temperature Anomaly data onto a Hammer-Aitoff map. The source 
+images have been downloaded from:
+http://www.nnvl.noaa.gov/Portal_Ohio/e3.html
+
+Program listing:
+ghcn_monthly_620.py - Re-projects GHCN monthly images output to a 
+			620px wide image
+ghcn_monthly_1000.py - Re-projects GHCN monthly images output to a 
+			1000px wide image
+ghcn_monthly_1920.py - Re-projects GHCN monthly images output to a 
+			1920pxX1080px image
+ghcn_yearly_620.py - Re-projects GHCN yearly images output to a 
+			620px wide image
+ghcn_yearly_1000.py - Re-projects GHCN yearly images output to a 
+			1000px wide image
+ghcn_yearly_1920.py - Re-projects GHCN yearly images output to a 
+			1920pxX1080px image
+image_meta.py - A script to create metadata for the image stack
+
+Program Usage:
+Any of these scripts can be used to create an output image of the
+desired size. A script can be called from prompt and the call must
+include the path to the original image, e.g.:
+ghcn_monthly_620.py /Images/Monthly/ANOM.monthly.201308.color.png
+
+The filename passed into the script must be of the format:
+ANOM.monthly.201308.color.png
+The scripts simply parses this filename in order to derive the date
+(e.g., 201308) in order to correctly name the output image. The
+parsing is conducted on the "." in the filename, so any preceeding
+element in the path to the file must not contain a ".". This could
+easily be modified in any of the scripts to account for other naming
+and/or filesystem path name conventions.
+
+Software and Dependencies:
+The scripts included here were built for Python 2.7. The following
+modules must exist on the system for them to perform correctly:
+matplotlib-1.4
+mpl_toolkits.basemap
+Image
+ImageOps
+numpy
+urllib
+shapefile
+sys
+os
+subprocess
+time
+matplotlib.font_manager
+
+Other files in this project:
+original_image_metadata.txt - Shows the URL source and creation 
+		date/time of the original images used for re-projection
+reprojected_image_metadata.txt - Shows the creation date/time of
+		the re-projected images for this project
+***Note - The original and re-projected images do not exist
+		within the source directory for this project, but can be
+		provided as "zip" archives
+colorbar and logo ".png" files included are sized for each of the
+re-projection image sizes and called/used by the various python
+scripts
