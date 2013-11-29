@@ -31,7 +31,7 @@ yyyy = fdate[0:4]
 mm = fdate[4:]
 ms = int2str(mm)
 labeldate = ms+' '+yyyy
-outpng = "../Images/Monthly/GHCN_monthly_temperature_anom_"+fdate+"_1920.png"
+outpng = "../Images/Monthly/1920/GHCN_monthly_temperature_anom_"+fdate+"_1920.png"
 
 path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 propr = font_manager.FontProperties(fname=path)
@@ -82,8 +82,14 @@ fig.figimage(logo_im, logo_x, logo_y, zorder=10)
 
 #Add the colorbar
 cbar_orig = Image.open(cbar_image)
-cbar_im = ImageOps.expand(cbar_orig,border=1,fill='#454545')
-#height = cbar_im.size[1]
+bbox = (1,1,254,10)
+cbar_orig.crop(bbox)
+old_size = cbar_orig.size
+new_size = (old_size[0]+2,old_size[1]+2)
+cbar_im = Image.new("RGB", new_size)
+cbar_im.paste(cbar_orig, ((new_size[0]-old_size[0])/2,
+                      (new_size[1]-old_size[1])/2))
+#cbar_im = ImageOps.expand(cbar_orig,border=1,fill='#505050')
 # We need a float array between 0-1, rather than
 # a uint8 array between 0-255 for the logo
 cbar_im = np.array(cbar_im).astype(np.float) / 255
@@ -96,11 +102,11 @@ ax2.set_xticks([])
 ax2.set_xticklabels([])
 ax2.set_yticks([])
 ax2.set_yticklabels([])
-plt.text(0.295, 0.0, '-11', fontproperties=propr, size=18)
+plt.text(0.301, 0.0, '-6', fontproperties=propr, size=18)
 plt.text(0.495, 0.0, '0', fontproperties=propr, size=18)
-plt.text(0.673, 0.0, '11', fontproperties=propr, size=18)
-plt.text(0.35, 0.07, 'Difference from average temperature', fontproperties=propb, size=18)
-plt.text(0.585, 0.07, '($^\circ$F)', fontproperties=propr, size=18)
+plt.text(0.673, 0.0, '6', fontproperties=propr, size=18)
+plt.text(0.36, 0.07, 'Difference from average temperature', fontproperties=propb, size=18)
+plt.text(0.595, 0.07, '($^\circ$F)', fontproperties=propr, size=18)
 plt.text(0.005, 0.04, labeldate, fontproperties=propr, size=18, color='#787878')
 plt.text(0.9, 0.04, 'Climate.gov', fontproperties=propr, size=18, color='#787878')
 plt.text(0.9, 0.0, 'Data: NCDC', fontproperties=propr, size=18, color='#787878')
@@ -112,3 +118,7 @@ plt.text(0.9, 0.0, 'Data: NCDC', fontproperties=propr, size=18, color='#787878')
 plt.savefig(outpng,dpi=figdpi,orientation='landscape',bbox_inches='tight',pad_inches=0.15)
 #plt.savefig(outpng, dpi=figdpi, orientation='landscape', transparent='True', pad_inches=0.75)
 #plt.savefig(outpng, dpi=figdpi, orientation='landscape', pad_inches=0.75)
+
+#clean up
+cmd = "rm tmp.png"
+os.system(cmd)

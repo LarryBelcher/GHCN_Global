@@ -63,3 +63,13 @@ reprojected_image_metadata.txt - Shows the creation date/time of
 colorbar and logo ".png" files included are sized for each of the
 re-projection image sizes and called/used by the various python
 scripts
+
+
+UPDATE (11/29/2013):
+
+Modified the monthly and yearly scripts:
+1) Changes data range on colorbar to agree with the new data ranges (-6F to 6F) shown
+on the new images at http://www.nnvl.noaa.gov/view/
+2) Fixed "halo" image on colorbar border
+
+Added a script to update the "original" images from http://www.nnvl.noaa.gov/view/ ftp site

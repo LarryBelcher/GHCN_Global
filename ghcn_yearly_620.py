@@ -14,7 +14,7 @@ infile = sys.argv[1] #expecting a filename like: ANOM.yearly.2012.color.png
 fdate = infile.split('.')[2]
 yyyy = fdate[0:4]
 labeldate = yyyy
-outpng = "../Images/Yearly/GHCN_yearly_temperature_anom_"+fdate+"_620.png"
+outpng = "../Images/Yearly/620/GHCN_yearly_temperature_anom_"+fdate+"_620.png"
 
 path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 propr = font_manager.FontProperties(fname=path)
@@ -66,12 +66,19 @@ fig.figimage(logo_im, logo_x, logo_y, zorder=10)
 
 #Add the colorbar
 cbar_orig = Image.open(cbar_image)
-cbar_im = ImageOps.expand(cbar_orig,border=1,fill='#505050')
-#height = cbar_im.size[1]
+bbox = (1,1,254,10)
+cbar_orig.crop(bbox)
+old_size = cbar_orig.size
+new_size = (old_size[0]+2,old_size[1]+2)
+cbar_im = Image.new("RGB", new_size)
+cbar_im.paste(cbar_orig, ((new_size[0]-old_size[0])/2,
+                      (new_size[1]-old_size[1])/2))
+#cbar_im = ImageOps.expand(cbar_orig,border=1,fill='#505050')
 # We need a float array between 0-1, rather than
 # a uint8 array between 0-255 for the logo
 cbar_im = np.array(cbar_im).astype(np.float) / 255
 fig.figimage(cbar_im, cbar_x, cbar_y, zorder=10)
+
 
 
 ax2 = fig.add_axes([0.0,0.275,1.0,0.3])
@@ -80,9 +87,9 @@ ax2.set_xticks([])
 ax2.set_xticklabels([])
 ax2.set_yticks([])
 ax2.set_yticklabels([])
-plt.text(0.265, 0.0, '-11', fontproperties=propr, size=8)
+plt.text(0.273, 0.0, '-6', fontproperties=propr, size=8)
 plt.text(0.5, 0.0, '0', fontproperties=propr, size=8)
-plt.text(0.71, 0.0, '11', fontproperties=propr, size=8)
+plt.text(0.71, 0.0, '6', fontproperties=propr, size=8)
 plt.text(0.32, 0.12, 'Difference from average temperature', fontproperties=propb, size=8)
 plt.text(0.66, 0.13, '($^\circ$F)', fontproperties=propr, size=8)
 plt.text(0.005, 0.05, labeldate, fontproperties=propr, size=8, color='#787878')
@@ -96,3 +103,7 @@ plt.text(0.9, 0.0, 'Data: NCDC', fontproperties=propr, size=8, color='#787878')
 plt.savefig(outpng,dpi=figdpi,orientation='landscape',bbox_inches='tight',pad_inches=0.15)
 #plt.savefig(outpng, dpi=figdpi, orientation='landscape', transparent='True', pad_inches=0.75)
 #plt.savefig(outpng, dpi=figdpi, orientation='landscape', pad_inches=0.75)
+
+#clean up
+cmd = "rm tmp.png"
+os.system(cmd)
