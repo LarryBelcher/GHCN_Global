@@ -33,9 +33,9 @@ ms = int2str(mm)
 labeldate = ms+' '+yyyy
 outpng = "../Images/Monthly/1920/GHCN_monthly_temperature_anom_"+fdate+"_1920.png"
 
-path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
+path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 propr = font_manager.FontProperties(fname=path)
-path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS_Bold.ttf'
+path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS_Bold.ttf'
 propb = font_manager.FontProperties(fname=path)
 
 
@@ -102,9 +102,9 @@ ax2.set_xticks([])
 ax2.set_xticklabels([])
 ax2.set_yticks([])
 ax2.set_yticklabels([])
-plt.text(0.301, 0.0, '-6', fontproperties=propr, size=18)
+plt.text(0.296, 0.0, '-11', fontproperties=propr, size=18)
 plt.text(0.495, 0.0, '0', fontproperties=propr, size=18)
-plt.text(0.673, 0.0, '6', fontproperties=propr, size=18)
+plt.text(0.671, 0.0, '11', fontproperties=propr, size=18)
 plt.text(0.36, 0.07, 'Difference from average temperature', fontproperties=propb, size=18)
 plt.text(0.595, 0.07, '($^\circ$F)', fontproperties=propr, size=18)
 plt.text(0.005, 0.04, labeldate, fontproperties=propr, size=18, color='#787878')

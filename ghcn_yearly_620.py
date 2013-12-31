@@ -9,39 +9,53 @@ import shapefile, os, subprocess, urllib, time, sys, Image, ImageOps
 import matplotlib.font_manager as font_manager
 
 
+def int2str(mm):
+	if(mm == '01'): ms = 'January'
+	if(mm == '02'): ms = 'February'
+	if(mm == '03'): ms = 'March'
+	if(mm == '04'): ms = 'April'
+	if(mm == '05'): ms = 'May'
+	if(mm == '06'): ms = 'June'
+	if(mm == '07'): ms = 'July'
+	if(mm == '08'): ms = 'August'
+	if(mm == '09'): ms = 'September'
+	if(mm == '10'): ms = 'October'
+	if(mm == '11'): ms = 'November'
+	if(mm == '12'): ms = 'December'
+	return ms
+
 
 infile = sys.argv[1] #expecting a filename like: ANOM.yearly.2012.color.png
 fdate = infile.split('.')[2]
 yyyy = fdate[0:4]
-labeldate = yyyy
-outpng = "../Images/Yearly/620/GHCN_yearly_temperature_anom_"+fdate+"_620.png"
+outpng = "../Images/Yearly/620/GHCN_yearly_temperature_anom_"+yyyy+"_620.png"
 
-path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
+path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 propr = font_manager.FontProperties(fname=path)
-path = '/usr/share/fonts/truetype/msttcorefonts/Trebuchet_MS_Bold.ttf'
+path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS_Bold.ttf'
 propb = font_manager.FontProperties(fname=path)
 
 
 
 #Define some figure properties
-figxsize = 5.9
-figysize = 8
-figdpi = 100
+figxsize = 8.6
+figysize = 5.71
+figdpi = 72
 logo_image = './noaa_logo_620.png'
-logo_x = 556
-logo_y = 45
+logo_x = 566
+logo_y = 59
 cbar_image = './ANOM.colorbar_620.png'
 cbar_x = 181
-cbar_y = 27
+cbar_y = 21
 
 fig = plt.figure(figsize=(figxsize,figysize))
 # create an axes instance, leaving room for colorbar at bottom.
-ax = fig.add_axes([0.0,0.1,1.0,0.85])
+ax1 = fig.add_axes([0.0,0.0,1.0,1.0], frameon=True, axisbg='#F5F5F5')
+
 
 # define projection (use -98.5 to center on North America)
-m = Basemap(projection='hammer',lon_0=0,resolution='l',area_thresh=10000)
-m.drawmapboundary(color='#787878', linewidth=0.5)
-
+m = Basemap(projection='hammer',lon_0=0,resolution='l',area_thresh=10000, ax=ax1)
+m.drawmapboundary(color='#787878', linewidth=0.4)
 
 
 orig = Image.open(infile)
@@ -52,7 +66,7 @@ im = m.warpimage("./tmp.png")
 
 
 # draw coastlines and boundaries
-m.drawcoastlines(color='#787878',linewidth=0.2)
+m.drawcoastlines(color='#787878',linewidth=0.2,)
 m.drawcountries(color='#787878',linewidth=0.2)
 
 
@@ -64,10 +78,11 @@ height = logo_im.size[1]
 logo_im = np.array(logo_im).astype(np.float) / 255
 fig.figimage(logo_im, logo_x, logo_y, zorder=10)
 
+
 #Add the colorbar
 cbar_orig = Image.open(cbar_image)
-bbox = (1,1,254,10)
-cbar_orig.crop(bbox)
+bbox = (1,1,257,12)
+cbar_orig = cbar_orig.crop(bbox)
 old_size = cbar_orig.size
 new_size = (old_size[0]+2,old_size[1]+2)
 cbar_im = Image.new("RGB", new_size)
@@ -80,30 +95,36 @@ cbar_im = np.array(cbar_im).astype(np.float) / 255
 fig.figimage(cbar_im, cbar_x, cbar_y, zorder=10)
 
 
-
-ax2 = fig.add_axes([0.0,0.275,1.0,0.3])
+#ax2 = fig.add_axes([0.0,0.0,1.0,0.13], frameon=True, axisbg='#FFFFFF')
+ax2 = fig.add_axes([0.0,0.0,1.0,0.13])
 ax2.set_frame_on(False)
+#ax2.spines['top'].set_color('#FFFFFF')
+#ax2.spines['bottom'].set_color('#FFFFFF')
+#ax2.spines['left'].set_color('#FFFFFF')
+#ax2.spines['right'].set_color('#FFFFFF')
 ax2.set_xticks([])
 ax2.set_xticklabels([])
 ax2.set_yticks([])
 ax2.set_yticklabels([])
-plt.text(0.273, 0.0, '-6', fontproperties=propr, size=8)
-plt.text(0.5, 0.0, '0', fontproperties=propr, size=8)
-plt.text(0.71, 0.0, '6', fontproperties=propr, size=8)
-plt.text(0.32, 0.12, 'Difference from average temperature', fontproperties=propb, size=8)
-plt.text(0.66, 0.13, '($^\circ$F)', fontproperties=propr, size=8)
-plt.text(0.005, 0.05, labeldate, fontproperties=propr, size=8, color='#787878')
-plt.text(0.9, 0.05, 'Climate.gov', fontproperties=propr, size=8, color='#787878')
-plt.text(0.9, 0.0, 'Data: NCDC', fontproperties=propr, size=8, color='#787878')
+
+plt.text(0.275, 0.14, '-11', fontproperties=propr, size=12, color='#333333')
+plt.text(0.5, 0.14, '0', fontproperties=propr, size=12, color='#333333')
+plt.text(0.698, 0.14, '11', fontproperties=propr, size=12, color='#333333')
+plt.text(0.31, 0.7, 'Difference from average temperature', fontproperties=propb, size=12, color='#333333')
+plt.text(0.655, 0.71, '($^\circ$F)', fontproperties=propr, size=12, color='#333333')
+plt.text(0.005, 0.8, yyyy, fontproperties=propr, size=11, color='#8d8d8d')
+plt.text(0.9, 0.8, 'Climate.gov', fontproperties=propr, size=11, color='#8d8d8d')
+plt.text(0.902, 0.6, 'Data: NCDC', fontproperties=propr, size=11, color='#8d8d8d')
 
 
 
-#plt.savefig(outpng, dpi=310, bbox_inches='tight', pad_inches=0)
-#plt.savefig(outpng, dpi=figdpi,orientation='landscape',transparent='True',bbox_inches='tight',pad_inches=0.75)
-plt.savefig(outpng,dpi=figdpi,orientation='landscape',bbox_inches='tight',pad_inches=0.15)
-#plt.savefig(outpng, dpi=figdpi, orientation='landscape', transparent='True', pad_inches=0.75)
-#plt.savefig(outpng, dpi=figdpi, orientation='landscape', pad_inches=0.75)
+#Save figure w/ grey behind the globe ***For testing only now!!!
+#plt.savefig(outpng,dpi=figdpi,orientation='landscape', bbox_inches='tight', pad_inches=0.01, facecolor='#787878')
+
+#Save figure w/o grey behind the globe
+plt.savefig(outpng,dpi=figdpi,orientation='landscape', bbox_inches='tight', pad_inches=0.01)
 
 #clean up
 cmd = "rm tmp.png"
 os.system(cmd)
+
