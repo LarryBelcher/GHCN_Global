@@ -1,0 +1,19 @@
+Processing notes for GHCN Global Temperature Anomaly code
+
+1) For the 620px image, the template calls for the data region to be 620x316. Due to 
+aspect ratio constraints in python, the actual size is 620x314. Even so, I am able to
+retain the total image size of 620x365.
+
+2) For the 1000px image, the template calls for the data region to be 1000x508. Due to 
+aspect ratio constraints in python, the actual size is 1000x504. For this one, the total
+image size is 1000x555 (spec sheet called for 1000x558)
+
+3) For the DIY colorbar and text elements, I was unable to add both the color bar png and
+the logo png into the eps output. Instead, I set it up to do the cbar and text as an eps
+and the zip the image, the eps, and an eps version of the logo into the zip file.
+
+4) For the DIY logo, I created an eps using ImageMagic. This was to enable development of
+the DIY script, specifically the zipping functionality. This file should be replaced with
+an official NOAA logo of the desired size in vector format (e.g., encapsulated postscript).
+
+5) On HD, date and title font location are specified to be at the same height.

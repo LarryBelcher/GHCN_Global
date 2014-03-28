@@ -1,48 +1,84 @@
-README for GHCN Global Temperature Anomaly image re-projection
+﻿README for GHCN Global Temperature Anomaly image re-projection
 
 Abstract:
 Six python scripts are contained in this project that re-project GHCN
-Global Temperature Anomaly data onto a Hammer-Aitoff map. The source 
-images have been downloaded from:
-http://www.nnvl.noaa.gov/Portal_Ohio/e3.html
+Global Temperature Anomaly data onto a map (Hammer-Aitoff, equidistant cylindrical, 
+or Robinson). The source images currently reside at:
 
-Program listing:
-ghcn_monthly_620.py - Re-projects GHCN monthly images output to a 
-			620px wide image
-ghcn_monthly_1000.py - Re-projects GHCN monthly images output to a 
-			1000px wide image
-ghcn_monthly_1920.py - Re-projects GHCN monthly images output to a 
-			1920pxX1080px image
-ghcn_yearly_620.py - Re-projects GHCN yearly images output to a 
-			620px wide image
-ghcn_yearly_1000.py - Re-projects GHCN yearly images output to a 
-			1000px wide image
-ghcn_yearly_1920.py - Re-projects GHCN yearly images output to a 
-			1920pxX1080px image
+Monthly Average Temperature Anom: ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly/
+Annual Average Temperature Anom: ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Yearly/
+
+
+
+Python script listing:
+
+ghcn_monthly_driver.py - Driver routine for monthly temperature anomaly images
+
+ghcn_monthly_map.py – Map routine for monthly temperature anomaly images
+
+ghcn_monthly_colorbar.py – Color bar routine for monthly temperature anomaly images
+
+ghcn_yearly_driver.py - Driver routine for yearly temperature anomaly images
+
+ghcn_yearly_map.py – Map routine for yearly temperature anomaly images
+
+ghcn_yearly_colorbar.py – Color bar routine for yearly temperature anomaly images
+
+
+Additional scripts in this project:
 image_meta.py - A script to create metadata for the image stack
+update_images.py – A simple script to update (or also grab) the monthly and yearly 
+temperature anomaly source images
+
+
 
 Program Usage:
-Any of these scripts can be used to create an output image of the
-desired size. A script can be called from prompt and the call must
-include the path to the original image, e.g.:
-ghcn_monthly_620.py /Images/Monthly/ANOM.monthly.201308.color.png
 
-The filename passed into the script must be of the format:
-ANOM.monthly.201308.color.png
-The scripts simply parses this filename in order to derive the date
-(e.g., 201308) in order to correctly name the output image. The
-parsing is conducted on the "." in the filename, so any preceeding
-element in the path to the file must not contain a ".". This could
-easily be modified in any of the scripts to account for other naming
-and/or filesystem path name conventions.
+Image production begins by executing ghcn_monthly_driver.py (ghcn_yearly_driver.py), which
+will create a monthly (yearly) image of a desired size. The possible image sizes 
+(in pixel width) include 620px, 1000px, 4096px (DIY), 1920px (HD, or HDSD). An example 
+call to the monthly driver routine routine:
+
+“path to python”  ghcn_monthly_driver.py “image size” “YYYYMM”
+
+e.g., 
+/usr/bin/python  ghcn_monthly_driver.py 620 201401
+
+The above call would produce an image of reprojected global monthly temperature anomaly 
+data from NOAA View (http://www.nnvl.noaa.gov/view/).
+
+Or an example call to the yearly driver routine routine:
+
+“path to python”  ghcn_yearly_driver.py “image size” “YYYY”
+
+e.g., 
+/usr/bin/python  ghcn_yearly_driver.py 620 2014
+
+The above call would produce an image of reprojected global annual temperature anomaly 
+data from NOAA View (http://www.nnvl.noaa.gov/view/).
+
+Valid “image size” values are:
+620 (620px wide image)
+1000 (1000px wide image)
+DIY (4096px wide image)
+HD (1920px wide image in high definition)
+HDSD (1920px wide image suitable for either high definition or standard definition
+
+Valid dates range from 188001 - present for monthly images (up to the previous month*)
+	*release date tends to be mid to late month (18th of month) for monthly data
+Or, 1880 through present (up to the previous year*)
+	*release date tends to be in February
+
+
 
 Software and Dependencies:
+
 The scripts included here were built for Python 2.7. The following
 modules must exist on the system for them to perform correctly:
-matplotlib-1.4
+
+matplotlib-1.1.1 (or higher)
+PIL (python imaging library, 1.1.7 or higher, PIL is the Python Imaging Library)
 mpl_toolkits.basemap
-Image
-ImageOps
 numpy
 urllib
 shapefile
@@ -50,26 +86,31 @@ sys
 os
 subprocess
 time
-matplotlib.font_manager
+matplotlib.font_manager (in order to utilize the true type font MS Trebuchet, which is not
+	included as a "base" font in python*)
+	*The usage of PIL and the font manager inside matplotlib in these scripts requires
+	the ability to utilize true type fonts. As such for example on a linux box, one would
+	need to have installed the freetype-dev packages. Specifically, libfreetype6-dev needs
+	to be installed on ubuntu... 
 
 Other files in this project:
-original_image_metadata.txt - Shows the URL source and creation 
-		date/time of the original images used for re-projection
-reprojected_image_metadata.txt - Shows the creation date/time of
-		the re-projected images for this project
-***Note - The original and re-projected images do not exist
-		within the source directory for this project, but can be
-		provided as "zip" archives
-colorbar and logo ".png" files included are sized for each of the
-re-projection image sizes and called/used by the various python
-scripts
+colorbar and logo (.png and .eps) files included here are sized for each of the image 
+sizes and are used by the various python scripts that produce the reprojected images
 
 
-UPDATE (11/29/2013):
 
-Modified the monthly and yearly scripts:
-1) Changes data range on colorbar to agree with the new data ranges (-6F to 6F) shown
-on the new images at http://www.nnvl.noaa.gov/view/
-2) Fixed "halo" image on colorbar border
+Notes on portability:
 
-Added a script to update the "original" images from http://www.nnvl.noaa.gov/view/ ftp site
+1) All image making scripts in the project need the path to Trebuchet MS true-type font.
+e.g.,
+
+	/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf
+
+	*This path depends entirely on the location the sysadmin installs “add-on” fonts.
+
+2) The two mapping routines (ghcn_monthly_map.py and ghcn_yearly_map.py) require the path
+to the original images, e.g., 
+
+	/GHCN_Global/Images/Monthly/Orig/
+
+
