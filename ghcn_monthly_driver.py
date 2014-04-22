@@ -24,19 +24,21 @@ def int2str(mm):
 	if(mm == '12'): ms = 'December'
 	return ms
 
-imgsize = sys.argv[1]  #(expects 620, 1000, DIY, HD, or HDSD )
-fdate = sys.argv[2]   #(expects format like: 201301)
+
+fdate = sys.argv[1]   #(expects format like: 201301)
 yyyy = fdate[0:4]
 mm = fdate[4:]
 ms = int2str(mm)
 labeldate = ms+' '+yyyy
 figdpi = 72
 
-cmd = "/usr/bin/python ./ghcn_monthly_map.py "+imgsize+" "+fdate
+imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD )
+
+cmd = "/usr/bin/python ./ghcn_monthly_map.py "+fdate+" "+imgsize
 os.system(cmd)
 
 if(imgsize == '620' or imgsize == '1000' or imgsize == 'DIY'):
-	cmd = "/usr/bin/python ./ghcn_monthly_colorbar.py "+imgsize+" "+fdate
+	cmd = "/usr/bin/python ./ghcn_monthly_colorbar.py "+fdate+" "+imgsize
 	os.system(cmd)
 
 if not os.path.isdir('../Images/Monthly'):
@@ -56,7 +58,7 @@ if(imgsize == '620' or imgsize == '1000'):
 	imgw = str(im3.size[0])
 	imgh = str(im3.size[1])
 	img_path = '../Images/Monthly/'+imgsize+'/'
-	img_name = 'ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
+	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile
 	im3.save(pngfile)
@@ -68,16 +70,16 @@ if(imgsize == 'DIY'):
 	imgw = str(imgs.size[0])
 	imgh = str(imgs.size[1])
 	img_path = '../Images/Monthly/'+imgsize+'/'
-	img_name = 'ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
+	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
 	cmd = 'mv '+im1+' '+img_name
 	os.system(cmd)
 	im2 = "./temporary_cbar.eps"
-	cbar_name = 'ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00_colorbar.eps'
+	cbar_name = 'tempanomaly-monthly-nnvl--'+yyyy+'-'+mm+'-00_colorbar.eps'
 	cmd = 'mv '+im2+' '+cbar_name
 	os.system(cmd)	
-	cmd1 = 'zip ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_name+' '+cbar_name+' noaa_logo.eps '
+	cmd1 = 'zip tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_name+' '+cbar_name+' noaa_logo.eps '
 	os.system(cmd1)
-	cmd2 = 'mv ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_path
+	cmd2 = 'mv tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_path
 	os.system(cmd2)
 	cmd3 = 'rm '+img_name+' '+cbar_name
 	os.system(cmd3)
@@ -92,7 +94,7 @@ if(imgsize == 'HD'):
 	draw.text((224,810), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
 	ttext = "Compared to 20th Century"
-	draw.text((226,838), ttext, (0,0,0), font=fnt2)
+	draw.text((223,838), ttext, (0,0,0), font=fnt2)
 	
 	#Add the colorbar
 	cbar_orig = Image.open('ANOM.colorbar_HD.png')
@@ -115,7 +117,7 @@ if(imgsize == 'HD'):
 	draw.polygon([(1285,955), (1300,945), (1285,935)], fill="black", outline="black")
 	
 	img_path = '../Images/Monthly/'+imgsize+'/'
-	img_name = 'ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
+	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'hd--'+yyyy+'-'+mm+'-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile
 	im1.save(pngfile)
@@ -131,7 +133,7 @@ if(imgsize == 'HDSD'):
 	draw.text((408,640), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
 	ttext = "Compared to 20th Century"
-	draw.text((410,668), ttext, (0,0,0), font=fnt2)
+	draw.text((408,668), ttext, (0,0,0), font=fnt2)
 	
 	#Add the colorbar
 	cbar_orig = Image.open('ANOM.colorbar_HD.png')
@@ -154,7 +156,7 @@ if(imgsize == 'HDSD'):
 	draw.polygon([(1285,830), (1300,820), (1285,810)], fill="black", outline="black")
 	
 	img_path = '../Images/Monthly/'+imgsize+'/'
-	img_name = 'ghcntempanom--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
+	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'hdsd--'+yyyy+'-'+mm+'-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile
 	im1.save(pngfile)

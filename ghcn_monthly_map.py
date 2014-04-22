@@ -25,13 +25,14 @@ def int2str(mm):
 	if(mm == '12'): ms = 'December'
 	return ms
 
-imgsize = sys.argv[1]  #(expects 620, 1000, DIY, HD, or HDSD)
-fdate = sys.argv[2]   #(expects format like: 201301)
+
+fdate = sys.argv[1]   #(expects format like: 201301)
 yyyy = fdate[0:4]
 mm = fdate[4:]
 ms = int2str(mm)
 labeldate = ms+' '+yyyy
 
+imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD)
 
 #Define the path to the original images
 path2orig = '/Users/belcher/Desktop/NOAA_CSC/GHCN_Global/Images/Monthly/Orig/'
@@ -56,8 +57,8 @@ if(imgsize == '620'):
 	figysize = 5.8
 	figdpi = 72
 	logo_image = './noaa_logo_42.png'
-	logo_x = 566
-	logo_y = 4
+	logo_x = 568
+	logo_y = 1
 	mproj = 'HA'
 	mlw = 0.2
 
@@ -66,16 +67,16 @@ if(imgsize == '1000'):
 	figysize = 7.5
 	figdpi = 72
 	logo_image = './noaa_logo_42.png'
-	logo_x = 946
-	logo_y = 4
+	logo_x = 948
+	logo_y = 3
 	mproj = 'HA'
 	mlw = 0.2
 
 
 if(imgsize == 'DIY'):
-	figxsize = 56.875
-	figysize = 28.435
-	figdpi = 72
+	figxsize = 13.657
+	figysize = 6.817
+	figdpi = 300
 	mproj = 'CE'
 	mlw = 0.5
 

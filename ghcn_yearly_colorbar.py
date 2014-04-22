@@ -28,13 +28,14 @@ def int2str(mm):
 	if(mm == '12'): ms = 'December'
 	return ms
 
-imgsize = sys.argv[1]
 
-imgsize = sys.argv[1]  #(expects 620, 1000, DIY, )
-fdate = sys.argv[2]   #(expects format like: 2013)
+
+
+fdate = sys.argv[1]   #(expects format like: 2013)
 yyyy = fdate
 labeldate = fdate
 
+imgsize = sys.argv[2]  #(expects 620, 1000, DIY, )
 
 path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 propr = font_manager.FontProperties(fname=path)
@@ -53,9 +54,9 @@ if(imgsize == '620'):
 	t1x = 0.310; t1y = 0.678
 	t2x = 0.654; t2y = 0.680
 	t3x = 0.006; t3y = 0.77
-	t4x = 0.905; t4y = 0.77
-	t5x = 0.899; t5y = 0.55
-	t6x = 0.278; t6y = 0.15
+	t4x = 0.910; t4y = 0.77
+	t5x = 0.902; t5y = 0.55
+	t6x = 0.284; t6y = 0.15
 	t7x = 0.495; t7y = 0.15
 	t8x = 0.700; t8y = 0.15
 	pngfile = "temporary_cbar.png"
@@ -71,10 +72,10 @@ if(imgsize == '1000'):
 	fsiz2 = 11
 	t1x = 0.382; t1y = 0.678
 	t2x = 0.596; t2y = 0.680
-	t3x = 0.002; t3y = 0.77
-	t4x = 0.943; t4y = 0.77
-	t5x = 0.938; t5y = 0.55
-	t6x = 0.363; t6y = 0.15
+	t3x = 0.004; t3y = 0.77
+	t4x = 0.946; t4y = 0.77
+	t5x = 0.941; t5y = 0.55
+	t6x = 0.366; t6y = 0.15
 	t7x = 0.497; t7y = 0.15
 	t8x = 0.623; t8y = 0.15
 	pngfile = "temporary_cbar.png"
@@ -135,9 +136,9 @@ plt.text(t3x, t3y, labeldate, fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t4x, t4y, 'NOAA EVL', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t5x, t5y, 'Data: NCDC', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 
-plt.text(t6x, t6y, "-11", fontproperties=propr, size=fsiz2, color='#333333')
+plt.text(t6x, t6y, "-7", fontproperties=propr, size=fsiz2, color='#333333')
 plt.text(t7x, t8y, "0", fontproperties=propr, size=fsiz2, color='#333333')
-plt.text(t8x, t8y, "11", fontproperties=propr, size=fsiz2, color='#333333')
+plt.text(t8x, t8y, "7", fontproperties=propr, size=fsiz2, color='#333333')
 
 
 

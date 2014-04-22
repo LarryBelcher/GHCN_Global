@@ -39,20 +39,20 @@ will create a monthly (yearly) image of a desired size. The possible image sizes
 (in pixel width) include 620px, 1000px, 4096px (DIY), 1920px (HD, or HDSD). An example 
 call to the monthly driver routine routine:
 
-“path to python”  ghcn_monthly_driver.py “image size” “YYYYMM”
+“path to python”  ghcn_monthly_driver.py “YYYYMM” “image size”
 
 e.g., 
-/usr/bin/python  ghcn_monthly_driver.py 620 201401
+/usr/bin/python  ghcn_monthly_driver.py 201401 620 
 
 The above call would produce an image of reprojected global monthly temperature anomaly 
 data from NOAA View (http://www.nnvl.noaa.gov/view/).
 
 Or an example call to the yearly driver routine routine:
 
-“path to python”  ghcn_yearly_driver.py “image size” “YYYY”
+“path to python”  ghcn_yearly_driver.py “YYYY” “image size”
 
 e.g., 
-/usr/bin/python  ghcn_yearly_driver.py 620 2014
+/usr/bin/python  ghcn_yearly_driver.py 2013  620
 
 The above call would produce an image of reprojected global annual temperature anomaly 
 data from NOAA View (http://www.nnvl.noaa.gov/view/).
