@@ -37,7 +37,7 @@ Program Usage:
 Image production begins by executing ghcn_monthly_driver.py (ghcn_yearly_driver.py), which
 will create a monthly (yearly) image of a desired size. The possible image sizes 
 (in pixel width) include 620px, 1000px, 4096px (DIY), 1920px (HD, or HDSD). An example 
-call to the monthly driver routine routine:
+call to the monthly driver routine:
 
 “path to python”  ghcn_monthly_driver.py “YYYYMM” “image size”
 
