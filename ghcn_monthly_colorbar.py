@@ -53,14 +53,14 @@ if(imgsize == '620'):
 	figdpi = 72
 	fsiz1 = 12
 	fsiz2 = 11
-	t1x = 0.310; t1y = 0.678
-	t2x = 0.654; t2y = 0.680
+	t1x = 0.310; t1y = 0.684
+	t2x = 0.654; t2y = 0.686
 	t3x = 0.006; t3y = 0.77
 	t4x = 0.910; t4y = 0.77
 	t5x = 0.902; t5y = 0.55
-	t6x = 0.278; t6y = 0.15
-	t7x = 0.495; t7y = 0.15
-	t8x = 0.700; t8y = 0.15
+	t6x = 0.278; t6y = 0.14
+	t7x = 0.495; t7y = 0.14
+	t8x = 0.700; t8y = 0.14
 	pngfile = "temporary_cbar.png"
 
 if(imgsize == '1000'):
@@ -72,14 +72,14 @@ if(imgsize == '1000'):
 	figdpi = 72
 	fsiz1 = 12
 	fsiz2 = 11
-	t1x = 0.382; t1y = 0.678
-	t2x = 0.596; t2y = 0.680
+	t1x = 0.382; t1y = 0.684
+	t2x = 0.596; t2y = 0.686
 	t3x = 0.004; t3y = 0.77
 	t4x = 0.946; t4y = 0.77
 	t5x = 0.941; t5y = 0.55
-	t6x = 0.363; t6y = 0.15
-	t7x = 0.497; t7y = 0.15
-	t8x = 0.623; t8y = 0.15
+	t6x = 0.363; t6y = 0.14
+	t7x = 0.497; t7y = 0.14
+	t8x = 0.623; t8y = 0.14
 	pngfile = "temporary_cbar.png"
 
 if(imgsize == 'DIY'):
@@ -139,7 +139,7 @@ plt.text(t4x, t4y, 'NOAA EVL', fontproperties=propr, size=fsiz2, color='#8D8D8D'
 plt.text(t5x, t5y, 'Data: NCDC', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 
 plt.text(t6x, t6y, "-11", fontproperties=propr, size=fsiz2, color='#333333')
-plt.text(t7x, t8y, "0", fontproperties=propr, size=fsiz2, color='#333333')
+plt.text(t7x, t7y, "0", fontproperties=propr, size=fsiz2, color='#333333')
 plt.text(t8x, t8y, "11", fontproperties=propr, size=fsiz2, color='#333333')
 
 

@@ -116,10 +116,10 @@ if(imgsize == 'HDSD'):
 	draw = ImageDraw.Draw(im1)
 	fntpath = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 	fnt1 = ImageFont.truetype(fntpath, 25)
-	draw.text((408,640), yyyy, (0,0,0), font=fnt1)
+	draw.text((408,642), yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
 	ttext = "Compared to 20th Century"
-	draw.text((408,668), ttext, (0,0,0), font=fnt2)
+	draw.text((408,670), ttext, (0,0,0), font=fnt2)
 	
 	#Add the colorbar
 	cbar_orig = Image.open('ANOM.colorbar_HD.png')
@@ -135,8 +135,8 @@ if(imgsize == 'HDSD'):
 	fnt3 = ImageFont.truetype(fntpath, 48)
 	text1 = "Cooler"
 	text2 = "Warmer"
-	draw.text((645,790), text1, (0,0,0), font=fnt3)
-	draw.text((1100,790), text2, (0,0,0), font=fnt3)
+	draw.text((645,791), text1, (0,0,0), font=fnt3)
+	draw.text((1100,791), text2, (0,0,0), font=fnt3)
 	
 	draw.polygon([(630,830), (615,820), (630,810)], fill="black", outline="black")
 	draw.polygon([(1285,830), (1300,820), (1285,810)], fill="black", outline="black")
