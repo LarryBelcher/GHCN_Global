@@ -54,7 +54,7 @@ if(imgsize == '620'):
 	t1x = 0.310; t1y = 0.684
 	t2x = 0.654; t2y = 0.686
 	t3x = 0.006; t3y = 0.77
-	t4x = 0.910; t4y = 0.77
+	t4x = 0.904; t4y = 0.77
 	t5x = 0.902; t5y = 0.55
 	t6x = 0.284; t6y = 0.14
 	t7x = 0.495; t7y = 0.14
@@ -74,7 +74,7 @@ if(imgsize == '1000'):
 	t2x = 0.596; t2y = 0.686
 	t3x = 0.004; t3y = 0.77
 	t4x = 0.946; t4y = 0.77
-	t5x = 0.941; t5y = 0.55
+	t5x = 0.9415; t5y = 0.55
 	t6x = 0.366; t6y = 0.14
 	t7x = 0.497; t7y = 0.14
 	t8x = 0.623; t8y = 0.14
@@ -92,7 +92,7 @@ if(imgsize == 'DIY'):
 	t1x = 0.33; t1y = 0.665
 	t2x = 0.67; t2y = 0.664
 	t3x = 0.05; t3y = 0.82
-	t4x = 0.85; t4y = 0.82
+	t4x = 0.84; t4y = 0.82
 	t5x = 0.84; t5y = 0.63
 	t6x = 0.300; t6y = 0.420
 	t7x = 0.51; t7y = 0.420
@@ -133,7 +133,7 @@ plt.text(t1x, t1y, dval, fontproperties=propb, size=fsiz1, color='#333333')
 plt.text(t2x, t2y, "($^\circ$F)", fontproperties=propr, size=fsiz1, color='#333333')
 
 plt.text(t3x, t3y, labeldate, fontproperties=propr, size=fsiz2, color='#8D8D8D')
-plt.text(t4x, t4y, 'NOAA EVL', fontproperties=propr, size=fsiz2, color='#8D8D8D')
+plt.text(t4x, t4y, 'NOAA NNVL', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t5x, t5y, 'Data: NCDC', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 
 plt.text(t6x, t6y, "-7", fontproperties=propr, size=fsiz2, color='#333333')
