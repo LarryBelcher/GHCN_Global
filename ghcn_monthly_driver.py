@@ -7,7 +7,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import os, datetime, sys
 import numpy as np
-import _imaging
+#import _imaging
 
 def int2str(mm):
 	if(mm == '01'): ms = 'January'
@@ -45,7 +45,7 @@ if not os.path.isdir('../Images/Monthly'):
 	cmd = 'mkdir ../Images/Monthly'
 	os.system(cmd)
 if not os.path.isdir('../Images/Monthly/'+imgsize):
-	cmd = 'mkdir ../Images/Monthly/'+imgsize
+	cmd = 'mkdir ../Images/Monthly/'+imgsize.lower()
 	os.system(cmd)
 
 
@@ -69,7 +69,7 @@ if(imgsize == 'DIY'):
 	imgs = Image.open(im1)
 	imgw = str(imgs.size[0])
 	imgh = str(imgs.size[1])
-	img_path = '../Images/Monthly/'+imgsize+'/'
+	img_path = '../Images/Monthly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
 	cmd = 'mv '+im1+' '+img_name
 	os.system(cmd)
@@ -116,7 +116,7 @@ if(imgsize == 'HD'):
 	draw.polygon([(630,955), (615,945), (630,935)], fill="black", outline="black")
 	draw.polygon([(1285,955), (1300,945), (1285,935)], fill="black", outline="black")
 	
-	img_path = '../Images/Monthly/'+imgsize+'/'
+	img_path = '../Images/Monthly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'hd--'+yyyy+'-'+mm+'-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile
@@ -155,7 +155,7 @@ if(imgsize == 'HDSD'):
 	draw.polygon([(630,830), (615,820), (630,810)], fill="black", outline="black")
 	draw.polygon([(1285,830), (1300,820), (1285,810)], fill="black", outline="black")
 	
-	img_path = '../Images/Monthly/'+imgsize+'/'
+	img_path = '../Images/Monthly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'hdsd--'+yyyy+'-'+mm+'-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile

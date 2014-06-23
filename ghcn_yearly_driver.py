@@ -7,7 +7,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import os, datetime, sys
 import numpy as np
-import _imaging
+#import _imaging
 
 
 
@@ -31,7 +31,7 @@ if not os.path.isdir('../Images/Yearly'):
 	cmd = 'mkdir ../Images/Yearly'
 	os.system(cmd)
 if not os.path.isdir('../Images/Yearly/'+imgsize):
-	cmd = 'mkdir ../Images/Yearly/'+imgsize
+	cmd = 'mkdir ../Images/Yearly/'+imgsize.lower()
 	os.system(cmd)
 
 
@@ -55,7 +55,7 @@ if(imgsize == 'DIY'):
 	imgs = Image.open(im1)
 	imgw = str(imgs.size[0])
 	imgh = str(imgs.size[1])
-	img_path = '../Images/Yearly/'+imgsize+'/'
+	img_path = '../Images/Yearly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-00-00.png'
 	cmd = 'mv '+im1+' '+img_name
 	os.system(cmd)
@@ -102,7 +102,7 @@ if(imgsize == 'HD'):
 	draw.polygon([(630,955), (615,945), (630,935)], fill="black", outline="black")
 	draw.polygon([(1285,955), (1300,945), (1285,935)], fill="black", outline="black")
 	
-	img_path = '../Images/Yearly/'+imgsize+'/'
+	img_path = '../Images/Yearly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'hd--'+yyyy+'-00-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile
@@ -141,7 +141,7 @@ if(imgsize == 'HDSD'):
 	draw.polygon([(630,830), (615,820), (630,810)], fill="black", outline="black")
 	draw.polygon([(1285,830), (1300,820), (1285,810)], fill="black", outline="black")
 	
-	img_path = '../Images/Yearly/'+imgsize+'/'
+	img_path = '../Images/Yearly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'hdsd--'+yyyy+'-00-00.png'
 	pngfile = img_path+img_name
 	print "Saving "+pngfile

@@ -5,8 +5,9 @@ mpl.use('Agg')
 from mpl_toolkits.basemap import Basemap
 import numpy as np
 import matplotlib.pyplot as plt
-import shapefile, os, subprocess, urllib, time, sys, ImageOps, glob
+import shapefile, os, subprocess, urllib, time, sys, glob
 from PIL import Image
+from PIL import ImageOps
 import matplotlib.font_manager as font_manager
 
 
