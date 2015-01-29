@@ -14,6 +14,7 @@ from PIL import Image
 
 
 def int2str(mm):
+	if(mm == '00'): ms = 'No Data'
 	if(mm == '01'): ms = 'January'
 	if(mm == '02'): ms = 'February'
 	if(mm == '03'): ms = 'March'

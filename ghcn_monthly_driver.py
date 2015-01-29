@@ -10,6 +10,7 @@ import numpy as np
 #import _imaging
 
 def int2str(mm):
+	if(mm == '00'): ms = 'No Data'
 	if(mm == '01'): ms = 'January'
 	if(mm == '02'): ms = 'February'
 	if(mm == '03'): ms = 'March'
@@ -93,8 +94,9 @@ if(imgsize == 'HD'):
 	fnt1 = ImageFont.truetype(fntpath, 25)
 	draw.text((224,810), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
-	ttext = "Compared to 20th Century"
+	ttext = "Compared to 1981-2010 Average"
 	draw.text((223,838), ttext, (0,0,0), font=fnt2)
+
 	
 	#Add the colorbar
 	cbar_orig = Image.open('ANOM.colorbar_HD.png')
@@ -132,7 +134,7 @@ if(imgsize == 'HDSD'):
 	fnt1 = ImageFont.truetype(fntpath, 25)
 	draw.text((408,642), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
-	ttext = "Compared to 20th Century"
+	ttext = "Compared to 1981-2010 Average"
 	draw.text((408,670), ttext, (0,0,0), font=fnt2)
 	
 	#Add the colorbar

@@ -12,6 +12,7 @@ import matplotlib.font_manager as font_manager
 
 
 def int2str(mm):
+	
 	if(mm == '01'): ms = 'January'
 	if(mm == '02'): ms = 'February'
 	if(mm == '03'): ms = 'March'
@@ -129,6 +130,8 @@ bg.paste(orig,orig)
 bg.save("./tmp.png")
 im = m.warpimage("./tmp.png")
 
+#orig = np.array(orig).astype(np.float) / 255
+#fig.figimage(orig, logo_x, logo_y, zorder=10)
 
 # draw coastlines and boundaries
 m.drawcoastlines(color='#787878',linewidth=mlw)

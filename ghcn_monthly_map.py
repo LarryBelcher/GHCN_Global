@@ -12,6 +12,7 @@ import matplotlib.font_manager as font_manager
 
 
 def int2str(mm):
+	if(mm == '00'): ms = 'No Data'
 	if(mm == '01'): ms = 'January'
 	if(mm == '02'): ms = 'February'
 	if(mm == '03'): ms = 'March'
