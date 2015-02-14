@@ -136,6 +136,7 @@ plt.text(t1x, t1y, dval, fontproperties=propb, size=fsiz1, color='#333333')
 plt.text(t2x, t2y, "($^\circ$F)", fontproperties=propr, size=fsiz1, color='#333333')
 
 plt.text(t3x, t3y, labeldate, fontproperties=propr, size=fsiz2, color='#8D8D8D')
+plt.text(t3x, t3y-0.22, 'Compared to 1981-2010', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t4x, t4y, 'NOAA NNVL', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t5x, t5y, 'Data: NCDC', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 

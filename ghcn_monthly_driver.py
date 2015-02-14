@@ -94,7 +94,7 @@ if(imgsize == 'HD'):
 	fnt1 = ImageFont.truetype(fntpath, 25)
 	draw.text((224,810), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
-	ttext = "Compared to 1981-2010 Average"
+	ttext = "Compared to 1981-2010 average"
 	draw.text((223,838), ttext, (0,0,0), font=fnt2)
 
 	
@@ -132,10 +132,10 @@ if(imgsize == 'HDSD'):
 	draw = ImageDraw.Draw(im1)
 	fntpath = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 	fnt1 = ImageFont.truetype(fntpath, 25)
-	draw.text((408,642), ms+' '+yyyy, (0,0,0), font=fnt1)
+	draw.text((390,642), ms+' '+yyyy, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
-	ttext = "Compared to 1981-2010 Average"
-	draw.text((408,670), ttext, (0,0,0), font=fnt2)
+	ttext = "Compared to 1981-2010 average"
+	draw.text((390,670), ttext, (0,0,0), font=fnt2)
 	
 	#Add the colorbar
 	cbar_orig = Image.open('ANOM.colorbar_HD.png')
