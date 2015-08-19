@@ -5,7 +5,7 @@ mpl.use('Agg')
 from mpl_toolkits.basemap import Basemap
 import numpy as np
 import matplotlib.pyplot as plt
-import shapefile, os, subprocess, urllib, time, sys, glob
+import shapefile, os, subprocess, urllib, time, sys, glob, subprocess
 from PIL import Image
 from PIL import ImageOps
 import matplotlib.font_manager as font_manager
@@ -36,10 +36,11 @@ labeldate = ms+' '+yyyy
 
 imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD)
 
-#Define the path to the original images
-path2orig = '/Users/belcher/Desktop/NOAA_CSC/GHCN_Global/Images/Monthly/Orig/'
-infile = glob.glob(path2orig+'ANOM.monthly.*'+yyyy+mm+'*.color.png')[0]
 
+#Define the path to the original images
+if(mm != '00'):
+	path2orig = '/Users/belcher/Desktop/NOAA_CSC/GHCN_Global/Images/Monthly/Orig/'
+	infile = glob.glob(path2orig+'ANOM.monthly.*'+yyyy+mm+'*.color.png')[0]
 
 
 
@@ -108,7 +109,7 @@ fig = plt.figure(figsize=(figxsize,figysize))
 if(imgsize == '620' or imgsize == '1000' or imgsize == 'DIY'):
 	ax1 = fig.add_axes([0.0,0.0,1.0,1.0], frameon=False, axisbg='#F5F5F5')
 if(imgsize == 'HD'):
-	ax1 = fig.add_axes([0.12,0.22,0.76,0.68], frameon=False, axisbg='#F5F5F5')
+	ax1 = fig.add_axes([0.12,0.2199,0.76,0.679], frameon=False, axisbg='#F5F5F5')
 if(imgsize == 'HDSD'):
 	ax1 = fig.add_axes([0.15,0.367,0.7,0.513], frameon=False, axisbg='#F5F5F5')
 
@@ -125,12 +126,12 @@ if(mproj == 'CE'):
 if(mproj == 'RB'):
 	m = Basemap(projection='robin',lon_0=0,resolution='l')
 
-
-orig = Image.open(infile)
-bg = Image.new("RGB", orig.size, (211,211,211))
-bg.paste(orig,orig)
-bg.save("./tmp.png")
-im = m.warpimage("./tmp.png")
+if(mm != '00'):
+	orig = Image.open(infile)
+	bg = Image.new("RGB", orig.size, (211,211,211))
+	bg.paste(orig,orig)
+	bg.save("./tmp.png")
+	im = m.warpimage("./tmp.png")
 
 
 # draw coastlines and boundaries
@@ -158,5 +159,5 @@ if(imgsize == 'HD' or imgsize =='HDSD'):
 
 #clean up
 cmd = "rm tmp.png"
-os.system(cmd)
+subprocess.call(cmd,shell=True)
 

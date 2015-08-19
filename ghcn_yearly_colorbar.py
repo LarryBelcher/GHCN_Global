@@ -59,7 +59,7 @@ if(imgsize == '620'):
 	t2x = 0.654; t2y = 0.686
 	t3x = 0.006; t3y = 0.77
 	t4x = 0.904; t4y = 0.77
-	t5x = 0.902; t5y = 0.55
+	t5x = 0.906; t5y = 0.55
 	t6x = 0.284; t6y = 0.14
 	t7x = 0.495; t7y = 0.14
 	t8x = 0.700; t8y = 0.14
@@ -78,7 +78,7 @@ if(imgsize == '1000'):
 	t2x = 0.596; t2y = 0.686
 	t3x = 0.004; t3y = 0.77
 	t4x = 0.9415; t4y = 0.77
-	t5x = 0.9415; t5y = 0.55
+	t5x = 0.943; t5y = 0.55
 	t6x = 0.366; t6y = 0.14
 	t7x = 0.497; t7y = 0.14
 	t8x = 0.623; t8y = 0.14
@@ -139,7 +139,7 @@ plt.text(t2x, t2y, "($^\circ$F)", fontproperties=propr, size=fsiz1, color='#3333
 plt.text(t3x, t3y, labeldate+' ', fontproperties=propb, size=fsiz2, color='#8D8D8D')
 plt.text(t3x, t3y-0.22, 'Compared to 1981-2010', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 plt.text(t4x, t4y, 'NOAA NNVL', fontproperties=propr, size=fsiz2, color='#8D8D8D')
-plt.text(t5x, t5y, 'Data: NCDC', fontproperties=propr, size=fsiz2, color='#8D8D8D')
+plt.text(t5x, t5y, 'Data: NCEI', fontproperties=propr, size=fsiz2, color='#8D8D8D')
 
 plt.text(t6x, t6y, "-7", fontproperties=propr, size=fsiz2, color='#333333')
 plt.text(t7x, t7y, "0", fontproperties=propr, size=fsiz2, color='#333333')

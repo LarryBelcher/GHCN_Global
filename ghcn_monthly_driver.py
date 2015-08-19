@@ -5,7 +5,7 @@ mpl.use('Agg')
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-import os, datetime, sys
+import os, datetime, sys,subprocess
 import numpy as np
 #import _imaging
 
@@ -36,18 +36,19 @@ figdpi = 72
 imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD )
 
 cmd = "/usr/bin/python ./ghcn_monthly_map.py "+fdate+" "+imgsize
-os.system(cmd)
+subprocess.call(cmd, shell=True)
+
 
 if(imgsize == '620' or imgsize == '1000' or imgsize == 'DIY'):
 	cmd = "/usr/bin/python ./ghcn_monthly_colorbar.py "+fdate+" "+imgsize
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 
 if not os.path.isdir('../Images/Monthly'):
 	cmd = 'mkdir ../Images/Monthly'
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 if not os.path.isdir('../Images/Monthly/'+imgsize):
 	cmd = 'mkdir ../Images/Monthly/'+imgsize.lower()
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 
 
 if(imgsize == '620' or imgsize == '1000'):
@@ -73,17 +74,17 @@ if(imgsize == 'DIY'):
 	img_path = '../Images/Monthly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.png'
 	cmd = 'mv '+im1+' '+img_name
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 	im2 = "./temporary_cbar.eps"
 	cbar_name = 'tempanomaly-monthly-nnvl--'+yyyy+'-'+mm+'-00_colorbar.eps'
 	cmd = 'mv '+im2+' '+cbar_name
-	os.system(cmd)	
+	subprocess.call(cmd,shell=True)	
 	cmd1 = 'zip tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_name+' '+cbar_name+' noaa_logo.eps '
-	os.system(cmd1)
+	subprocess.call(cmd1,shell=True)
 	cmd2 = 'mv tempanomaly-monthly-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-'+mm+'-00.zip '+img_path
-	os.system(cmd2)
+	subprocess.call(cmd2,shell=True)
 	cmd3 = 'rm '+img_name+' '+cbar_name
-	os.system(cmd3)
+	subprocess.call(cmd3,shell=True)
 	
 if(imgsize == 'HD'):
 	im1 = Image.open("temporary_map.png")

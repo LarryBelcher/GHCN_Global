@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, urllib, sys, time
+import os, urllib, sys, time, subprocess
 
 
 yyyy = sys.argv[1]
@@ -13,16 +13,18 @@ this_month = time.localtime().tm_mon
 for i in range(12):
 	if(yyyy == this_yyyy and monint[i] < this_month):
 		fname = "ANOM.monthly."+yyyy+monstr[i]+".color.png"
-		url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly/"+fname
+		#url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly/"+fname
+		url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly_Calculated_vs_1981_to_2010_Average/"+fname
 		urllib.urlretrieve(url, "tmp.png")
 		cmd = "mv tmp.png ../Images/Monthly/Orig/"+fname
-		os.system(cmd)
+		subprocess.call(cmd,shell=True)
 	if(yyyy != this_yyyy):
 		fname = "ANOM.monthly."+yyyy+monstr[i]+".color.png"
-		url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly/"+fname
+		#url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly/"+fname
+		url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Monthly_Calculated_vs_1981_to_2010_Average/"+fname
 		urllib.urlretrieve(url, "tmp.png")
 		cmd = "mv tmp.png ../Images/Monthly/Orig/"+fname
-		os.system(cmd)
+		subprocess.call(cmd,shell=True)
 		
 
 #download the yearly file (in not current year) and put it in the Yearly/Orig folder
@@ -31,4 +33,4 @@ if (yyyy != this_yyyy):
 	url = "ftp://ftp.nnvl.noaa.gov/View/ANOM/Images/Color/Yearly/"+fname
 	urllib.urlretrieve(url, "tmp.png")
 	cmd = "mv tmp.png ../Images/Yearly/Orig/"+fname
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)

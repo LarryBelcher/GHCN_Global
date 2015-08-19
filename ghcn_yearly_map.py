@@ -106,7 +106,7 @@ fig = plt.figure(figsize=(figxsize,figysize))
 if(imgsize == '620' or imgsize == '1000' or imgsize == 'DIY'):
 	ax1 = fig.add_axes([0.0,0.0,1.0,1.0], frameon=False, axisbg='#F5F5F5')
 if(imgsize == 'HD'):
-	ax1 = fig.add_axes([0.12,0.22,0.76,0.68], frameon=False, axisbg='#F5F5F5')
+	ax1 = fig.add_axes([0.12,0.2199,0.76,0.679], frameon=False, axisbg='#F5F5F5')
 if(imgsize == 'HDSD'):
 	ax1 = fig.add_axes([0.15,0.367,0.7,0.513], frameon=False, axisbg='#F5F5F5')
 
@@ -158,5 +158,5 @@ if(imgsize == 'HD' or imgsize =='HDSD'):
 
 #clean up
 cmd = "rm tmp.png"
-os.system(cmd)
+subprocess.call(cmd,shell=True)
 

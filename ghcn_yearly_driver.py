@@ -5,7 +5,7 @@ mpl.use('Agg')
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-import os, datetime, sys
+import os, datetime, sys, subprocess
 import numpy as np
 #import _imaging
 
@@ -21,18 +21,18 @@ if(imgsize != 'DIY'): figdpi = 72
 if(imgsize == 'DIY'): figdpi = 300
 
 cmd = "/usr/bin/python ./ghcn_yearly_map.py "+fdate+" "+imgsize
-os.system(cmd)
+subprocess.call(cmd,shell=True)
 
 if(imgsize == '620' or imgsize == '1000' or imgsize == 'DIY'):
 	cmd = "/usr/bin/python ./ghcn_yearly_colorbar.py "+fdate+" "+imgsize
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 
 if not os.path.isdir('../Images/Yearly'):
 	cmd = 'mkdir ../Images/Yearly'
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 if not os.path.isdir('../Images/Yearly/'+imgsize):
 	cmd = 'mkdir ../Images/Yearly/'+imgsize.lower()
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 
 
 if(imgsize == '620' or imgsize == '1000'):
@@ -58,17 +58,17 @@ if(imgsize == 'DIY'):
 	img_path = '../Images/Yearly/'+imgsize.lower()+'/'
 	img_name = 'tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-00-00.png'
 	cmd = 'mv '+im1+' '+img_name
-	os.system(cmd)
+	subprocess.call(cmd,shell=True)
 	im2 = "./temporary_cbar.eps"
 	cbar_name = 'tempanomaly-annual-nnvl--'+yyyy+'-00-00_colorbar.eps'
 	cmd = 'mv '+im2+' '+cbar_name
-	os.system(cmd)	
+	subprocess.call(cmd,shell=True)
 	cmd1 = 'zip tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-00-00.zip '+img_name+' '+cbar_name+' noaa_logo.eps '
-	os.system(cmd1)
+	subprocess.call(cmd1,shell=True)
 	cmd2 = 'mv tempanomaly-annual-nnvl--'+imgw+'x'+imgh+'--'+yyyy+'-00-00.zip '+img_path
-	os.system(cmd2)
+	subprocess.call(cmd2,shell=True)
 	cmd3 = 'rm '+img_name+' '+cbar_name
-	os.system(cmd3)
+	subprocess.call(cmd3,shell=True)
 	
 if(imgsize == 'HD'):
 	im1 = Image.open("temporary_map.png")

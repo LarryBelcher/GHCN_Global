@@ -1,0 +1,75 @@
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2000-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2000-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2000-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2000-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2001-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2001-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2001-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2001-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2002-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2002-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2002-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2002-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2003-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2003-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2003-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2003-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2004-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2004-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2004-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2004-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2005-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2005-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2005-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2005-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2006-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2006-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2006-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2006-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2007-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2007-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2007-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2007-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2008-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2008-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2008-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2008-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2009-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2009-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2009-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2009-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2010-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2010-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2010-00-00.png (deflated 0%)
+  adding: tempanomaly-annual-nnvl--2010-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2011-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2011-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2011-00-00.png (deflated 0%)
+  adding: tempanomaly-annual-nnvl--2011-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2012-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2012-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2012-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2012-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2013-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2013-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2013-00-00.png (deflated 1%)
+  adding: tempanomaly-annual-nnvl--2013-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
+Saving ../Images/Yearly/620/tempanomaly-annual-nnvl--620x365--2014-00-00.png
+Saving ../Images/Yearly/1000/tempanomaly-annual-nnvl--1000x555--2014-00-00.png
+  adding: tempanomaly-annual-nnvl--4096x2051--2014-00-00.png (deflated 0%)
+  adding: tempanomaly-annual-nnvl--2014-00-00_colorbar.eps (deflated 76%)
+  adding: noaa_logo.eps (deflated 71%)
