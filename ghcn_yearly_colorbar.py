@@ -36,6 +36,8 @@ fdate = sys.argv[1]   #(expects format like: 2013)
 yyyy = fdate
 labeldate = fdate
 
+if(yyyy == '0000'): labeldate = 'No Data'
+
 imgsize = sys.argv[2]  #(expects 620, 1000, DIY, )
 
 path = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'

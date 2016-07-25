@@ -15,6 +15,8 @@ fdate = sys.argv[1]   #(expects format like: 2013)
 yyyy = fdate
 labeldate = fdate
 
+if(yyyy == '0000'): labeldate = 'No Data'
+
 imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD )
 
 if(imgsize != 'DIY'): figdpi = 72
@@ -77,7 +79,7 @@ if(imgsize == 'HD'):
 	draw = ImageDraw.Draw(im1)
 	fntpath = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 	fnt1 = ImageFont.truetype(fntpath, 25)
-	draw.text((224,810), yyyy, (0,0,0), font=fnt1)
+	draw.text((224,810), labeldate, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
 	ttext = "Compared to 1981-2010 average"
 	draw.text((224,838), ttext, (0,0,0), font=fnt2)
@@ -116,7 +118,7 @@ if(imgsize == 'HDSD'):
 	draw = ImageDraw.Draw(im1)
 	fntpath = '/usr/local/share/fonts/truetype/msttcorefonts/Trebuchet_MS.ttf'
 	fnt1 = ImageFont.truetype(fntpath, 25)
-	draw.text((408,642), yyyy, (0,0,0), font=fnt1)
+	draw.text((408,642), labeldate, (0,0,0), font=fnt1)
 	fnt2 = ImageFont.truetype(fntpath, 14)
 	ttext = "Compared to 1981-2010 average"
 	draw.text((408,670), ttext, (0,0,0), font=fnt2)

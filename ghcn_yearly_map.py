@@ -32,13 +32,14 @@ fdate = sys.argv[1]   #(expects format like: 2013)
 yyyy = fdate
 labeldate = fdate
 
+if(yyyy == '0000'): labeldate = 'No Data'
+
 imgsize = sys.argv[2]  #(expects 620, 1000, DIY, HD, or HDSD)
 
-#Define the path to the original images
-path2orig = '/Users/belcher/Desktop/NOAA_CSC/GHCN_Global/Images/Yearly/Orig/'
-infile = glob.glob(path2orig+'ANOM.yearly.*'+yyyy+'*.color.png')[0]
-
-
+if(yyyy != '0000'):
+	#Define the path to the original images
+	path2orig = '/Users/belcher/Desktop/NOAA_CSC/GHCN_Global/Images/Yearly/Orig/'
+	infile = glob.glob(path2orig+'ANOM.yearly.*'+yyyy+'*.color.png')[0]
 
 
 outpng = './temporary_map.png'
@@ -123,12 +124,12 @@ if(mproj == 'CE'):
 if(mproj == 'RB'):
 	m = Basemap(projection='robin',lon_0=0,resolution='l')
 
-
-orig = Image.open(infile)
-bg = Image.new("RGB", orig.size, (211,211,211))
-bg.paste(orig,orig)
-bg.save("./tmp.png")
-im = m.warpimage("./tmp.png")
+if(yyyy != '0000'):
+	orig = Image.open(infile)
+	bg = Image.new("RGB", orig.size, (211,211,211))
+	bg.paste(orig,orig)
+	bg.save("./tmp.png")
+	im = m.warpimage("./tmp.png")
 
 #orig = np.array(orig).astype(np.float) / 255
 #fig.figimage(orig, logo_x, logo_y, zorder=10)
